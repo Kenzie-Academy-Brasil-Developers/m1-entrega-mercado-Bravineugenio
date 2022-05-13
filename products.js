@@ -93,12 +93,68 @@ const products = [
 const frutas = document.querySelector(".fruits");
 const bebidas = document.querySelector(".drinks");
 const higiene = document.querySelector(".hygiene");
+const corpo = document.querySelector(".products-content")
 
-function criarLista(array) {
+// function criarLista(array) {
 
+//   for(let i=0;i<array.length;i++){
+//   const tagUl = document.createElement("ul")
+//   const productCard = document.createElement("li");
+//   const productImg = document.createElement("img");
+//   const productMain = document.createElement("main");
+//   const productTitle = document.createElement("h1");
+//   const productCategory = document.createElement("h5");
+//   const productPrice = document.createElement("strong");
+
+//   productCard.classList.add("product");
+//   productImg.classList.add("product-img");
+//   productMain.classList.add("product-main");
+//   productTitle.classList.add("product-title");
+//   productCategory.classList.add("product-category");
+//   productPrice.classList.add("product-price");
+
+//   products[i].image = (products[i].image == undefined) ? "./img/products/no-img.svg": products[i].image
+//   productImg.src =  `${products[i].image}`
+//   productTitle.innerText = `${products[i].title}`;
+//   productCategory.innerText = `${products[i].category}`;
+//   productPrice.innerHTML = `${products[i].price}`;
+
+//   productCard.appendChild(productImg);
+//   productCard.appendChild(productMain);
+//   productMain.appendChild(productTitle);
+//   productMain.appendChild(productCategory);
+//   productMain.appendChild(productPrice);
+//   tagUl.appendChild(productCard)
+//   corpo.appendChild(tagUl)
+
+//   if(products[i].category === "Higiene"){
+//     higiene.appendChild(productCard)
+//   }
+//   if(products[i].category === "Bebidas"){
+//     bebidas.appendChild(productCard)
+//   }
+//   if(products[i].category === "Frutas"){
+//   frutas.appendChild(productCard)
+//   }
+
+// }
+
+// }
+
+// criarLista(products)
+
+
+
+
+
+
+
+function teste(array) {
+  const tagUl = document.createElement("ul")
+  
+  
   for(let i=0;i<array.length;i++){
   
-  const tagUl = document.createElement("ul")
   const productCard = document.createElement("li");
   const productImg = document.createElement("img");
   const productMain = document.createElement("main");
@@ -125,19 +181,20 @@ function criarLista(array) {
   productMain.appendChild(productCategory);
   productMain.appendChild(productPrice);
   tagUl.appendChild(productCard)
+  
+
   if(products[i].category === "Higiene"){
-    higiene.appendChild(tagUl)
+    higiene.appendChild(productCard)
   }
   if(products[i].category === "Bebidas"){
-    bebidas.appendChild(tagUl)
+    bebidas.appendChild(productCard)
   }
   if(products[i].category === "Frutas"){
-  frutas.appendChild(tagUl)
+  frutas.appendChild(productCard)
   }
-  
-}
 
-  
 }
-
-criarLista(products)
+corpo.appendChild(tagUl)
+console.log(tagUl)
+}
+teste(products)
