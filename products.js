@@ -4,7 +4,9 @@ const higiene = document.querySelector(".hygiene");
 
  
 
-function criarLista(products) {
+function criarLista() {
+
+  for(let i=0;i<products.length;i++){
   const productCard = document.createElement("li");
   const productImg = document.createElement("img");
   const productMain = document.createElement("main");
@@ -17,7 +19,6 @@ function criarLista(products) {
   productMain.appendChild(productTitle);
   productMain.appendChild(productCategory);
   productMain.appendChild(productPrice);
-
 
   productCard.classList = "product";
   productImg.classList = "product-img";
@@ -32,8 +33,17 @@ function criarLista(products) {
   productCategory.innerText = products[0].category;
   productPrice.innerHTML = products[0].price
   
-  return productCategory
+  if(products.category === "Higiene"){
+    products[0].appendChild(productCard)
+  }
+  if(products.category === "Bebidas"){
+    products[0].appendChild(productCard)
+  }
+  if(products.category === "Frutas"){
+    products[0].appendChild(productCard)
+  }
   
+}
 }
 
 const products = [
@@ -127,19 +137,4 @@ const products = [
   },
 ];
 
-
-// products.map((element)=>{
-//   const listaItem = criarLista(element) 	
-//   if(element.category = "Frutas"){
-//     return frutas.appendChild(listaItem);
-
-//   }if(element.category = "Bebidas"){
-//     return bebidas.appendChild(listaItem);
-
-//   }if(element.category = "Higiene"){
-//       return higiene.appendChild(listaItem);
-
-
-// }})
-
-console.log(criarLista(products))
+criarLista(products)
