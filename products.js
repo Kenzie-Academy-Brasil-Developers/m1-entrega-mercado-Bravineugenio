@@ -1,20 +1,10 @@
 const frutas = document.querySelector(".fruits");
-const drinks = document.querySelector(".drinks");
-const higyen = document.querySelector(".hygiene");
-//Mapeando os elementos pela classe
-products.map((elemento) => {
-  const listarProdutos = criarLista(elemento);
+const bebidas = document.querySelector(".drinks");
+const higiene = document.querySelector(".hygiene");
 
-  if (elemento.category == "Frutas"){ 
-    return frutas.appendChild(listarProdutos);
-  } if (elemento.category == "Bebidas"){ 
-    return drinks.appendChild(listarProdutos);
-  } if (elemento.category == "Higiene"){ 
-    return higyen.appendChild(listarProdutos);
-  }
-});
-//criando a lista dos produtos
-function criarLista(item) {
+ 
+
+function criarLista(products) {
   const productCard = document.createElement("li");
   const productImg = document.createElement("img");
   const productMain = document.createElement("main");
@@ -35,17 +25,16 @@ function criarLista(item) {
   productTitle.classList = "product-title";
   productCategory.classList = "product-category";
   productPrice.classList = "product-price";
-
-  productImg.src =
-  products[0].image;
-  products[0].image === undefined ? "./img/products/no-img.svg"
-  productTitle.innerHTML = products[0].title;
-  productCategory.innerHTML = products[0].category;
+  
+  products[0].image = (products[0].image == undefined) ? "./img/products/no-img.svg": products[0].image
+  productImg.src =  products[0].image;
+  productTitle.innerText = products[0].title;
+  productCategory.innerText = products[0].category;
   productPrice.innerHTML = products[0].price
-
+  
+  return productCategory
+  
 }
-
-
 
 const products = [
   {
@@ -138,4 +127,19 @@ const products = [
   },
 ];
 
-criarLista(products)
+
+// products.map((element)=>{
+//   const listaItem = criarLista(element) 	
+//   if(element.category = "Frutas"){
+//     return frutas.appendChild(listaItem);
+
+//   }if(element.category = "Bebidas"){
+//     return bebidas.appendChild(listaItem);
+
+//   }if(element.category = "Higiene"){
+//       return higiene.appendChild(listaItem);
+
+
+// }})
+
+console.log(criarLista(products))
